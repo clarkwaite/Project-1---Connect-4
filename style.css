@@ -1,0 +1,17 @@
+#game-board {
+  width:389px;
+  height:332px;
+  margin:0 auto;
+  border: solid black 2px;
+  background-color: yellow;
+  padding: 0;
+};
+
+.emptyCircle {
+  width:55px;
+  height:55px;
+  border-radius: 50%;
+  border: solid black 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+};
