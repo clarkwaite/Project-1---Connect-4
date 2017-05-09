@@ -15,3 +15,10 @@
   background-color: rgba(255, 255, 255, 0.2);
   display: inline-block;
 };
+
+.redCircle {
+  background-color: red;
+}
+.blackCircle {
+  background-color: black;
+}

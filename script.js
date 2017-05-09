@@ -17,10 +17,20 @@ $(document).ready(function () {
             .css("height", '55px')
             .css('width', '55px')
             .css('margin-top', -1)
-             .css('margin-bottom', -4)
+            .css('margin-bottom', -4)
             .css('border', 'solid black 3px')
             .css('border-radius', '50%')
             .css('display', 'inline-block')
             .css('background-color', 'white')
-  
+
+$('.emptyCircle').on('click', function (event){
+ $(event.target).addClass('redCircle');
+});  
+
+
+
+
+
+
+
 });
