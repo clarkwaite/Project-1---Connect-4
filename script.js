@@ -13,29 +13,23 @@ $(document).ready(function () {
         }
     }
     createGameBoard();
-    $(".emptyCircle")
-        .css("height", '55px')
-        .css('width', '55px')
-        .css('margin-top', -1)
-        .css('margin-bottom', -4)
-        .css('border', 'solid black 3px')
-        .css('border-radius', '50%')
-        .css('display', 'inline-block')
-        .css('background-color', 'white')
 
     //on-click functionality
-     var blackCount = 0;
+     var playerNumber = 1;
     $('.emptyCircle').on('click', function (event) {
         var target = (event.target.classList[1]);
-        if (blackCount === 0 && target !== 'redCircle') {
-            $(event.target).addClass('blackCircle');
-            blackCount += 1;
+        if (playerNumber === 1 && target !== 'redCircle') {
+            $(event.target).addClass('blackCircle').removeClass('emptyCircle');
+            playerNumber = 2;
             console.log('black');
-        } else if
-            (blackCount === 1 && target !== 'blackCircle') {
-            $(event.target).addClass('redCircle');
-            blackCount -= 1;
+        } else if (playerNumber === 2 && target !== 'blackCircle') {
+            $(event.target).addClass('redCircle').removeClass('emptyCircle');
+            playerNumber = 1;
             console.log('red');
-        } 
+     } 
     })
+var firstColumn = ['#n36','#n29','#n22','#n15','#n8','#n1'];
+
+
+
 });

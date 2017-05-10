@@ -1,5 +1,6 @@
 header {
   background-color: rgba(20, 200, 200, .8);
+  margin: 0 0 15px 0;
 }
 
 h1 {
@@ -23,28 +24,41 @@ p {
 }
 
 #game-board {
-  width:389px;
-  height:332px;
+  width:398px;
+  height:365px;
   margin:0 auto;
   border: solid black 2px;
-  background-color: rgba(20, 200, 200, .8)
+  background-color: rgba(255, 255, 0, .7)
 
-};
+}
 
 .emptyCircle {
-  width:55px;
-  height:55px;
+  width:50px;
+  height:50px;
   border-radius: 50%;
-  border: solid black 1px;
-  background-color: rgba(255, 255, 255, 0.2);
+  border: solid black 3px;
+  background-color: white;
   display: inline-block;
-};
+  margin: 3px;
+}
 
 .redCircle {
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  border: solid black 3px;
   background-color: red;
+  display: inline-block;
+  margin: 3px;
 }
 .blackCircle {
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  border: solid black 3px;
   background-color: black;
+  display: inline-block;
+  margin: 3px;
 }
 
 footer {
