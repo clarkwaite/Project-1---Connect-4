@@ -15,7 +15,7 @@ $(document).ready(function () {
     createGameBoard();
     var playerNumber = 1;
 
-$('#row1').on('click', function () { 
+$('#column1').on('click', function () { 
     var firstColumn = [$('#n36'),$('#n29'),$('#n22'),$('#n15'),$('#n8'),$('#n1')];
   for (var i = 0; i < firstColumn.length; i++) {
       if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
@@ -31,7 +31,7 @@ $('#row1').on('click', function () {
       }
   }
 })
-$('#row2').on('click', function () { 
+$('#column2').on('click', function () { 
     var secondColumn = [$('#n37'),$('#n30'),$('#n23'),$('#n16'),$('#n9'),$('#n2')];
   for (var i = 0; i < secondColumn.length; i++) {
       if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
@@ -47,7 +47,7 @@ $('#row2').on('click', function () {
       }
   }
 })
-$('#row3').on('click', function () { 
+$('#column3').on('click', function () { 
     var thirdColumn = [$('#n38'),$('#n31'),$('#n24'),$('#n17'),$('#n10'),$('#n3')];
   for (var i = 0; i < thirdColumn.length; i++) {
       if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
@@ -63,7 +63,7 @@ $('#row3').on('click', function () {
       }
   }
 })
-$('#row4').on('click', function () { 
+$('#column4').on('click', function () { 
     var fourthColumn = [$('#n39'),$('#n32'),$('#n25'),$('#n18'),$('#n11'),$('#n4')];
   for (var i = 0; i < fourthColumn.length; i++) {
       if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
@@ -79,7 +79,7 @@ $('#row4').on('click', function () {
       }
   }
 })
-$('#row5').on('click', function () { 
+$('#column5').on('click', function () { 
     var fifthColumn = [$('#n40'),$('#n33'),$('#n26'),$('#n19'),$('#n12'),$('#n5')];
   for (var i = 0; i < fifthColumn.length; i++) {
       if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
@@ -95,7 +95,7 @@ $('#row5').on('click', function () {
       }
   }
 })
-$('#row6').on('click', function () { 
+$('#column6').on('click', function () { 
     var sixthColumn = [$('#n41'),$('#n34'),$('#n27'),$('#n20'),$('#n13'),$('#n6')];
   for (var i = 0; i < sixthColumn.length; i++) {
       if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
@@ -111,7 +111,7 @@ $('#row6').on('click', function () {
       }
   }
 })
-$('#row7').on('click', function () { 
+$('#column7').on('click', function () { 
     var seventhColumn = [$('#n42'),$('#n35'),$('#n28'),$('#n21'),$('#n14'),$('#n7')];
   for (var i = 0; i < seventhColumn.length; i++) {
       if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
