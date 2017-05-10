@@ -32,6 +32,18 @@ p {
 
 }
 
+.btn {
+  width: 53px;
+  margin-bottom: 2px;
+  color: black;
+  border: solid black 2px;
+  background-color: rgba(255, 255, 0, .7);
+  font-family: 'Francois One', sans-serif;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
 .emptyCircle {
   width:50px;
   height:50px;
