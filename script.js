@@ -14,23 +14,28 @@ $(document).ready(function () {
     }
     createGameBoard();
     $(".emptyCircle")
-            .css("height", '55px')
-            .css('width', '55px')
-            .css('margin-top', -1)
-            .css('margin-bottom', -4)
-            .css('border', 'solid black 3px')
-            .css('border-radius', '50%')
-            .css('display', 'inline-block')
-            .css('background-color', 'white')
+        .css("height", '55px')
+        .css('width', '55px')
+        .css('margin-top', -1)
+        .css('margin-bottom', -4)
+        .css('border', 'solid black 3px')
+        .css('border-radius', '50%')
+        .css('display', 'inline-block')
+        .css('background-color', 'white')
 
-$('.emptyCircle').on('click', function (event){
- $(event.target).addClass('redCircle');
-});  
-
-
-
-
-
-
-
+    //on-click functionality
+     var blackCount = 0;
+    $('.emptyCircle').on('click', function (event) {
+        var target = (event.target.classList[1]);
+        if (blackCount === 0 && target !== 'redCircle') {
+            $(event.target).addClass('blackCircle');
+            blackCount += 1;
+            console.log('black');
+        } else if
+            (blackCount === 1 && target !== 'blackCircle') {
+            $(event.target).addClass('redCircle');
+            blackCount -= 1;
+            console.log('red');
+        } 
+    })
 });
