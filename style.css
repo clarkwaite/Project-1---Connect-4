@@ -1,10 +1,34 @@
+header {
+  background-color: rgba(20, 200, 200, .8);
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Francois One', sans-serif;
+  color: white;
+  text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+  margin: 0;
+  padding-top: 20px;
+
+}
+
+p {
+  text-align: justify;
+  padding: 0 25px 0 25px;
+  font-family: 'Francois One', sans-serif; 
+  color: white;
+  text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+
+ 
+}
+
 #game-board {
   width:389px;
   height:332px;
   margin:0 auto;
   border: solid black 2px;
-  background-color: yellow;
-  padding: 0;
+  background-color: rgba(20, 200, 200, .8)
+
 };
 
 .emptyCircle {
@@ -21,4 +45,9 @@
 }
 .blackCircle {
   background-color: black;
+}
+
+footer {
+  text-align: right;
+  padding: 30px 30px 0 0;
 }
