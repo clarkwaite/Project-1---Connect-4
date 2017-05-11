@@ -212,12 +212,12 @@ $(document).ready(function () {
         }
     }
      function winConditions8() {
-        var checkRed = [];
-        var checkBlack = [];
+        var checkRed = 0;
+        var checkBlack = 0;
         for (var i = 0; i < con8.length; i++) {
             if (con8[i].attr('class') === 'blackCircle') {
-                checkBlack.push('blackCircle');
-                checkRed = [];
+                checkBlack = checkBlack + 1;
+                checkRed = 0;
                 if (checkBlack === 4)
                     alert('Black Wins!')
             } else if (con8[i].attr('class') === 'redCircle') {
@@ -225,7 +225,6 @@ $(document).ready(function () {
                 checkBlack = 0;
                 if (checkRed === 4) {
                     alert('Red Wins!')
-                    console.log('red' + checkRed, 'black' + checkBlack )
                 }
             }
         }
