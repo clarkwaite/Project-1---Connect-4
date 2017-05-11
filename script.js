@@ -59,7 +59,7 @@ for (var i = 0; i <= con1.length; i++) {
          if (checkBlack === 4){
         alert('Black Wins!');
      }   
-    }   
+    }
    }
   }
  }
