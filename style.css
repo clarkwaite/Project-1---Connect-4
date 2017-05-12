@@ -1,14 +1,13 @@
 header {
-  background-color: rgba(20, 200, 200, .8);
+  background-color: rgba(255, 75, 75, .9);
   margin: 0 0 15px 0;
 }
 
 h1 {
   text-align: center;
   font-family: 'Francois One', sans-serif;
-  color: white;
-  text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
-  margin: 0;
+  color: rgba(0,0,0,.8);
+  text-shadow: -1px 0 white,0 1px white,1px 0 white,0 -1px white;
   padding-top: 20px;
 
 }
@@ -17,8 +16,8 @@ p {
   text-align: justify;
   padding: 0 25px 0 25px;
   font-family: 'Francois One', sans-serif; 
-  color: white;
-  text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;
+  color: rgba(0,0,0,.7);
+
 
  
 }
@@ -27,16 +26,17 @@ p {
   width:398px;
   height:365px;
   margin:0 auto;
-  border: solid black 2px;
+  border: solid rgba(0,0,0,.8) 2px;
   background-color: rgba(255, 255, 0, .7)
 
 }
 
 .btn {
   width: 53px;
+  height: 32px;
   margin-bottom: 2px;
-  color: black;
-  border: solid black 2px;
+  color: rgba(0,0,0,.9);
+  border: solid rgba(0,0,0,.9) 2px;
   background-color: rgba(255, 255, 0, .7);
   font-family: 'Francois One', sans-serif;
 }
@@ -44,11 +44,35 @@ p {
     outline: 0 none;
 }
 
+#reset {
+  width: 125px;
+  height: 32px;
+  text-align: center;
+  margin-top: 20px;
+}
+.form-control {
+  width: 20%;
+  margin-top: 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+#blackName {
+  border: 3px solid rgba(0,0,0,.7);
+}
+
+#redName {
+  border: 3px solid rgba(255, 75, 75, .9);;
+}
+
+
 .emptyCircle {
   width:50px;
   height:50px;
   border-radius: 50%;
-  border: solid black 3px;
+  border: solid rgba(0,0,0,.9) 3px;
   background-color: white;
   display: inline-block;
   margin: 3px;
@@ -58,7 +82,7 @@ p {
   width:50px;
   height:50px;
   border-radius: 50%;
-  border: solid black 3px;
+  border: solid rgba(0,0,0,.9) 3px;
   background-color: red;
   display: inline-block;
   margin: 3px;
@@ -67,8 +91,8 @@ p {
   width:50px;
   height:50px;
   border-radius: 50%;
-  border: solid black 3px;
-  background-color: black;
+  border: solid rgba(0,0,0,.9) 3px;
+  background-color: rgba(0,0,0,.9);
   display: inline-block;
   margin: 3px;
 }

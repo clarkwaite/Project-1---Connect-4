@@ -12,10 +12,20 @@ $(document).ready(function () {
         }
     }
     createGameBoard();
+   //reset board  
+   function resetGameBoard() {
+            $("#game-board div").removeClass("blackCircle");
+            $("#game-board div").removeClass("redCircle");
+            $("#game-board div").addClass("emptyCircle");  
+    }
+    $('#reset').click(resetGameBoard);
+    
 
-
+//playerNames
     var playerNumber = 1;
 
+    
+//change player AND check win conditions
     function playerChange() {
         if (playerNumber === 1) {
             playerNumber = 2;
@@ -50,11 +60,7 @@ $(document).ready(function () {
         
     }
 
-
-
-
-    //check for win
-
+//arrays containing all possible win conditions
     var con1 =  [$('#n36'), $('#n29'), $('#n22'), $('#n15'), $('#n8'), $('#n1')];
     var con2 =  [$('#n37'), $('#n30'), $('#n23'), $('#n16'), $('#n9'), $('#n2')];
     var con3 =  [$('#n38'), $('#n31'), $('#n24'), $('#n17'), $('#n10'), $('#n3')];
@@ -85,6 +91,7 @@ $(document).ready(function () {
     var con24 = [$('#n28'), $('#n20'), $('#n12'), $('#n4')];
     var con25 = [$('#n22'), $('#n16'), $('#n10'), $('#n4')];
 
+   //not DRY but working functions that check for wins
     function winConditions() {
         var checkRed = 0;
         var checkBlack = 0;
@@ -536,29 +543,7 @@ $(document).ready(function () {
         }
     }
 
-    // for (var j = 0; j < variables.length; j++) {
-    // if (variables[j][i].attr('class') === 'blackCircle') {
-    //     checkBlack = checkBlack +1;
-    //     checkRed = 0;
-    // if (checkBlack === 4)
-    //     alert('Black Wins!')
-
-    // } else if (variables[j][i].attr('class') === 'redCircle') {
-    //     checkRed = checkRed +1;
-    //     checkBlack = 0;
-    // if (checkRed === 4)
-    //     alert('Red Wins!') 
-    // }
-    // console.log(checkRed);
-    // console.log(checkBlack);
-
-    // if (checkBlack && checkRed !== 0) {
-    // checkBlack = 0;
-    // checkRed = 0;
-    // }
-    //     }
-    //         }
-    // }
+//functions to fill in stacking rows on button click
     $('#column1').on('click', function () {
         var firstColumn = [$('#n36'), $('#n29'), $('#n22'), $('#n15'), $('#n8'), $('#n1')];
         for (var i = 0; i < firstColumn.length; i++) {
