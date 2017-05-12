@@ -61,7 +61,7 @@ var playerNumber = 1;
         winConditions23 ();
         winConditions24 ();
         winConditions25 ();
-        
+        drawCondition ();
     }
 
 //arrays containing all possible win conditions
