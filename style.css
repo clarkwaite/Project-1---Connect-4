@@ -59,14 +59,31 @@ p {
   border: 3px solid rgba(0,0,0,.7);
   display: inline-block;
   width:25%;
+  font-family: 'Francois One', sans-serif;
 }
 
 #redName {
   border: 3px solid rgba(255, 75, 75, .9);
   display: inline-block;
   width:25%;
+  font-family: 'Francois One', sans-serif;
+}
+.blacksTurn {
+  text-align: center;
+  padding: 0 25px 0 25px;
+  font-family: 'Francois One', sans-serif; 
+  font-weight: 900;
+  color: rgba(0,0,0,.7);
 }
 
+#aboveBoard {
+  text-align: center;
+  padding: 0 25px 0 25px;
+  font-family: 'Francois One', sans-serif; 
+  font-weight: 900;
+  font-size: 20px;
+  color: rgba(0,0,0,.7);
+}
 
 .emptyCircle {
   width:50px;

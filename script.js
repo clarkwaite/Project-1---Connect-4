@@ -12,6 +12,9 @@ $(document).ready(function () {
         }
     }
     createGameBoard();
+//player turn global variable
+var playerNumber = 1;
+
    //reset board  
    function resetGameBoard() {
             $("#game-board div").removeClass("blackCircle");
@@ -19,18 +22,19 @@ $(document).ready(function () {
             $("#game-board div").addClass("emptyCircle");  
     }
     $('#reset').click(resetGameBoard);
-    
 
-//playerNames
-    var playerNumber = 1;
-
-    
 //change player AND check win conditions
     function playerChange() {
         if (playerNumber === 1) {
+            $("#aboveBoard").empty();
+            $("#aboveBoard").prepend('<div>Red\'s Turn!<div/>'); 
+            $("#aboveBoard").css('color', 'rgba(255, 75, 75, .9)');
             playerNumber = 2;
         } else if (playerNumber === 2) {
-            playerNumber = 1;
+            $("#aboveBoard").empty();
+            $("#aboveBoard").prepend('<div>Black\'s Turn!<div/>'); 
+            $("#aboveBoard").css('color', 'rgba(0,0,0,.7)');
+            playerNumber = 1; 
         }
         winConditions ();
         winConditions2 ();
