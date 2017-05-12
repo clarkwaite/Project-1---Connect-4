@@ -14,6 +14,8 @@ $(document).ready(function () {
     createGameBoard();
     //player turn global variable
     var playerNumber = 1;
+
+    //change player names for alerts
     var name1 = 'Black';
     var name2 = 'Red';
 
@@ -29,12 +31,12 @@ $(document).ready(function () {
     function playerChange() {
         if (playerNumber === 1) {
             $("#aboveBoard").empty();
-            $("#aboveBoard").prepend('<div>Red\'s Turn!<div/>');
+            $("#aboveBoard").prepend('<div><div/>').html(name2 + "\'s" + " Turn!");
             $("#aboveBoard").css('color', 'rgba(255, 75, 75, .9)');
             playerNumber = 2;
         } else if (playerNumber === 2) {
             $("#aboveBoard").empty();
-            $("#aboveBoard").prepend('<div>Black\'s Turn!<div/>');
+            $("#aboveBoard").prepend('<div><div/>').html(name1 + "\'s" + " Turn!");
             $("#aboveBoard").css('color', 'rgba(0,0,0,.7)');
             playerNumber = 1;
         }
@@ -123,7 +125,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con2[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -141,7 +143,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con3[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -159,7 +161,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con4[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -177,7 +179,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con5[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -195,7 +197,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con6[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -213,7 +215,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con7[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -231,7 +233,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con8[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -249,7 +251,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con9[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -267,7 +269,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con10[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -285,7 +287,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con11[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -303,7 +305,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con12[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -321,7 +323,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con13[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -339,7 +341,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con14[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -357,7 +359,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con15[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -375,7 +377,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con16[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -393,7 +395,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con17[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -411,7 +413,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con18[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -429,7 +431,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con19[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -447,7 +449,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con20[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -465,7 +467,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con21[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -483,7 +485,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con22[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -501,7 +503,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con23[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -519,7 +521,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con24[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -537,7 +539,7 @@ $(document).ready(function () {
                 checkBlack = checkBlack + 1;
                 checkRed = 0;
                 if (checkBlack === 4)
-                    alert(name2 + ' Wins!')
+                    alert(name1 + ' Wins!')
             } else if (con25[i].attr('class') === 'redCircle') {
                 checkRed = checkRed + 1;
                 checkBlack = 0;
@@ -570,8 +572,8 @@ $(document).ready(function () {
                 secondColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
-                firstColumn[i].addClass('redCircle').removeClass('emptyCircle');
+            } else if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+                secondColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
             }
