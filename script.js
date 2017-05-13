@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
     createGameBoard();
     //player turn global variable
-    var playerNumber = 1;
+    var playerNumber = 'Black';
 
     //change player names for alerts
     var name1 = 'Black';
@@ -29,42 +29,44 @@ $(document).ready(function () {
 
     //change player AND check win conditions
     function playerChange() {
-        if (playerNumber === 1) {
+//calls for win before changing player
+        winConditionsLength6();
+        winConditionsLength7();
+        winConditionsLength5();
+        winConditionsLength4();
+
+        if (playerNumber === 'Black') {
             $("#aboveBoard").empty();
             $("#aboveBoard").prepend('<div><div/>').html(name2 + "\'s" + " Turn!");
             $("#aboveBoard").css('color', 'rgba(255, 75, 75, .9)');
-            playerNumber = 2;
-        } else if (playerNumber === 2) {
+            playerNumber = 'Red';
+        } else if (playerNumber === 'Red') {
             $("#aboveBoard").empty();
             $("#aboveBoard").prepend('<div><div/>').html(name1 + "\'s" + " Turn!");
             $("#aboveBoard").css('color', 'rgba(0,0,0,.7)');
-            playerNumber = 1;
+            playerNumber = 'Black';
         }
-        winConditions();
-        winConditions2();
-        winConditions3();
-        winConditions4();
-        winConditions5();
-        winConditions6();
-        winConditions7();
-        winConditions8();
-        winConditions9();
-        winConditions10();
-        winConditions11();
-        winConditions12();
-        winConditions13();
-        winConditions14();
-        winConditions15();
-        winConditions16();
-        winConditions17();
-        winConditions18();
-        winConditions19();
-        winConditions20();
-        winConditions21();
-        winConditions22();
-        winConditions23();
-        winConditions24();
-        winConditions25();
+        // winConditions5();
+        // winConditions6();
+        // winConditions7();
+        // winConditions8();
+        // winConditions9();
+        // winConditions10();
+        // winConditions11();
+        // winConditions12();
+        // winConditions13();
+        // winConditions14();
+        // winConditions15();
+        // winConditions16();
+        // winConditions17();
+        // winConditions18();
+        // winConditions19();
+        // winConditions20();
+        // winConditions21();
+        // winConditions22();
+        // winConditions23();
+        // winConditions24();
+        // winConditions25();
     }
 
     //arrays containing all possible win conditions
@@ -75,7 +77,6 @@ $(document).ready(function () {
     var con5 = [$('#n40'), $('#n33'), $('#n26'), $('#n19'), $('#n12'), $('#n5')];
     var con6 = [$('#n41'), $('#n34'), $('#n27'), $('#n20'), $('#n13'), $('#n6')];
     var con7 = [$('#n42'), $('#n35'), $('#n28'), $('#n21'), $('#n14'), $('#n7')];
-
     var con8 = [$('#n36'), $('#n30'), $('#n24'), $('#n18'), $('#n12'), $('#n6')];
     var con9 = [$('#n37'), $('#n31'), $('#n25'), $('#n19'), $('#n13'), $('#n7')];
     var con10 = [$('#n41'), $('#n33'), $('#n25'), $('#n17'), $('#n9'), $('#n1')];
@@ -98,467 +99,134 @@ $(document).ready(function () {
     var con24 = [$('#n28'), $('#n20'), $('#n12'), $('#n4')];
     var con25 = [$('#n22'), $('#n16'), $('#n10'), $('#n4')];
 
-    //not DRY but working functions that check for wins
-    function winConditions() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con1.length; i++) {
-            if (con1[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con1[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
+    var conditionsLength6 = [con1,con2,con3,con4,con5,con6,con7,con8,con9,con10,con11];
+    var conditionsLength7 = [con12,con13,con14,con15,con16,con17];
+    var conditionsLength5 = [con18,con19,con20,con21];
+    var conditionsLength4 = [con22,con23,con24,con25];
+
+ //testing win conditions with a length of 6
+    function winConditionsLength6() {
+        var currentValue = null,
+        previousValue = 0,
+        tally = 0;
+
+ for (var i = 0; i < conditionsLength6.length; i++) {
+    for (var x = 0; x < con1.length; x++) {
+           
+            currentValue = conditionsLength6[i][x].attr('class');
+            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                tally += 1;
+            } else {
+                // Reset the tally if you find a gap.
+                tally = 0;
             }
+            if (tally === 3) {
+                console.log(playerNumber);
+            }
+            previousValue = currentValue;
         }
+
+        // After each row, reset the tally and previous value.
+        tally = 0;
+        previousValue = 0;
     }
-    function winConditions2() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con2.length; i++) {
-            if (con2[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con2[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
     }
-    function winConditions3() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con3.length; i++) {
-            if (con3[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con3[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
+
+//testing win conditions with a length of 7
+     function winConditionsLength7() {
+        var currentValue = null,
+        previousValue = 0,
+        tally = 0;
+
+ for (var i = 0; i < conditionsLength7.length; i++) {
+    for (var x = 0; x < con12.length; x++) {
+           
+            currentValue = conditionsLength7[i][x].attr('class');
+            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                tally += 1;
+            } else {
+                // Reset the tally if you find a gap.
+                tally = 0;
             }
+            if (tally === 3) {
+                console.log(playerNumber);
+            }
+            previousValue = currentValue;
         }
+
+        // After each row, reset the tally and previous value.
+        tally = 0;
+        previousValue = 0;
     }
-    function winConditions4() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con4.length; i++) {
-            if (con4[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con4[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
     }
-    function winConditions5() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con5.length; i++) {
-            if (con5[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con5[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
+
+
+//testing win conditions with a length of 5
+     function winConditionsLength5() {
+        var currentValue = null,
+        previousValue = 0,
+        tally = 0;
+
+ for (var i = 0; i < conditionsLength5.length; i++) {
+    for (var x = 0; x < con18.length; x++) {
+           
+            currentValue = conditionsLength5[i][x].attr('class');
+            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                tally += 1;
+            } else {
+                // Reset the tally if you find a gap.
+                tally = 0;
             }
+            if (tally === 3) {
+                console.log(playerNumber);
+            }
+            previousValue = currentValue;
         }
+
+        // After each row, reset the tally and previous value.
+        tally = 0;
+        previousValue = 0;
     }
-    function winConditions6() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con6.length; i++) {
-            if (con6[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con6[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
     }
-    function winConditions7() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con7.length; i++) {
-            if (con7[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con7[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
+
+     
+//testing win conditions with a length of 4
+     function winConditionsLength4() {
+        var currentValue = null,
+        previousValue = 0,
+        tally = 0;
+
+ for (var i = 0; i < conditionsLength4.length; i++) {
+    for (var x = 0; x < con22.length; x++) {
+           
+            currentValue = conditionsLength4[i][x].attr('class');
+            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                tally += 1;
+            } else {
+                // Reset the tally if you find a gap.
+                tally = 0;
             }
+            if (tally === 3) {
+                console.log(playerNumber);
+            }
+            previousValue = currentValue;
         }
+
+        // After each row, reset the tally and previous value.
+        tally = 0;
+        previousValue = 0;
     }
-    function winConditions8() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con8.length; i++) {
-            if (con8[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con8[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions9() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con9.length; i++) {
-            if (con9[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con9[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions10() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con10.length; i++) {
-            if (con10[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con10[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions11() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con11.length; i++) {
-            if (con11[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con11[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions12() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con12.length; i++) {
-            if (con12[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con12[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions13() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con13.length; i++) {
-            if (con13[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con13[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions14() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con14.length; i++) {
-            if (con14[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con14[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions15() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con15.length; i++) {
-            if (con15[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con15[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions16() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con16.length; i++) {
-            if (con16[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con16[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions17() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con17.length; i++) {
-            if (con17[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con17[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions18() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con18.length; i++) {
-            if (con18[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con18[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions19() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con19.length; i++) {
-            if (con19[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con19[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions20() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con20.length; i++) {
-            if (con20[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con20[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions21() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con21.length; i++) {
-            if (con21[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con21[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions22() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con22.length; i++) {
-            if (con22[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con22[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions23() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con23.length; i++) {
-            if (con23[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con23[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions24() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con24.length; i++) {
-            if (con24[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con24[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
-    }
-    function winConditions25() {
-        var checkRed = 0;
-        var checkBlack = 0;
-        for (var i = 0; i < con25.length; i++) {
-            if (con25[i].attr('class') === 'blackCircle') {
-                checkBlack = checkBlack + 1;
-                checkRed = 0;
-                if (checkBlack === 4)
-                    alert(name1 + ' Wins!')
-            } else if (con25[i].attr('class') === 'redCircle') {
-                checkRed = checkRed + 1;
-                checkBlack = 0;
-                if (checkRed === 4) {
-                    alert(name2 + ' Wins!')
-                }
-            }
-        }
     }
 
     //functions to fill in stacking rows on button click
     $('#column1').on('click', function () {
         var firstColumn = [$('#n36'), $('#n29'), $('#n22'), $('#n15'), $('#n8'), $('#n1')];
         for (var i = 0; i < firstColumn.length; i++) {
-            if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 firstColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 firstColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -568,11 +236,11 @@ $(document).ready(function () {
     $('#column2').on('click', function () {
         var secondColumn = [$('#n37'), $('#n30'), $('#n23'), $('#n16'), $('#n9'), $('#n2')];
         for (var i = 0; i < secondColumn.length; i++) {
-            if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 secondColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 secondColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -582,11 +250,11 @@ $(document).ready(function () {
     $('#column3').on('click', function () {
         var thirdColumn = [$('#n38'), $('#n31'), $('#n24'), $('#n17'), $('#n10'), $('#n3')];
         for (var i = 0; i < thirdColumn.length; i++) {
-            if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 thirdColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 thirdColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -596,11 +264,11 @@ $(document).ready(function () {
     $('#column4').on('click', function () {
         var fourthColumn = [$('#n39'), $('#n32'), $('#n25'), $('#n18'), $('#n11'), $('#n4')];
         for (var i = 0; i < fourthColumn.length; i++) {
-            if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 fourthColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 fourthColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -610,11 +278,11 @@ $(document).ready(function () {
     $('#column5').on('click', function () {
         var fifthColumn = [$('#n40'), $('#n33'), $('#n26'), $('#n19'), $('#n12'), $('#n5')];
         for (var i = 0; i < fifthColumn.length; i++) {
-            if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 fifthColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 fifthColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -624,11 +292,11 @@ $(document).ready(function () {
     $('#column6').on('click', function () {
         var sixthColumn = [$('#n41'), $('#n34'), $('#n27'), $('#n20'), $('#n13'), $('#n6')];
         for (var i = 0; i < sixthColumn.length; i++) {
-            if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 sixthColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 sixthColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -638,11 +306,11 @@ $(document).ready(function () {
     $('#column7').on('click', function () {
         var seventhColumn = [$('#n42'), $('#n35'), $('#n28'), $('#n21'), $('#n14'), $('#n7')];
         for (var i = 0; i < seventhColumn.length; i++) {
-            if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 1) {
+            if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
                 seventhColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 2) {
+            } else if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
                 seventhColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
