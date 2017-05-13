@@ -222,14 +222,14 @@ header {
 }
 
 .redCircle {
-  width:27px;
-  height:27px;
+  width:33px;
+  height:33px;
   margin: 1px;
   border: solid rgba(0,0,0,.9) 2px;
 }
 .blackCircle {
-  width:27px;
-  height:27px;
+  width:33px;
+  height:33px;
   margin: 1px;
   border: solid rgba(0,0,0,.9) 2px;
 }
