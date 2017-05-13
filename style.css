@@ -197,7 +197,7 @@ header {
 
   #game-board {
   width:255px;
-  height:243px;
+  height:247px;
   margin:0 auto;
   border: solid rgba(0,0,0,.8) 2px;
   background-color: rgba(255, 255, 0, .7);
