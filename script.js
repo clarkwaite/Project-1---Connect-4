@@ -15,10 +15,6 @@ $(document).ready(function () {
     //player turn global variable
     var playerColor = 'Black';
 
-    //change player names for alerts
-    var name1 = 'Black';
-    var name2 = 'Red';
-
     //resets the board from the win board, and alternates starting player.
     function resetGameBoard() {
         $("#game-board div").removeClass("blackCircle");
@@ -30,7 +26,7 @@ $(document).ready(function () {
         playerChange();
         playerChange();
         $(".btn.drop").show();
-        
+
     }
     $('#reset').click(resetGameBoard);
 
@@ -41,26 +37,36 @@ $(document).ready(function () {
         winConditionsLength7();
         winConditionsLength5();
         winConditionsLength4();
-        
+
         if (playerColor === 'Black') {
             $("#aboveBoard").empty();
-            $("#aboveBoard").prepend('<div><div/>').html(name2 + "\'s" + " Turn!");
+            $("#aboveBoard").prepend('<div><div/>').html("Red\'s Turn!");
             $("#aboveBoard").css('color', 'rgba(255, 75, 75, .9)');
             playerColor = 'Red';
         } else if (playerColor === 'Red') {
             $("#aboveBoard").empty();
-            $("#aboveBoard").prepend('<div><div/>').html(name1 + "\'s" + " Turn!");
+            $("#aboveBoard").prepend('<div><div/>').html("Black\'s Turn!");
             $("#aboveBoard").css('color', 'rgba(0,0,0,.7)');
             playerColor = 'Black';
         }
     }
-//function to change the board when win conditions are met
-function winningBoard () {
+
+    //function to change the board when win conditions are met
+    var blackWin = 0;
+    var redWin = 0;
+    function winningBoard() {
         $(".winBoard").empty();
         $(".winBoard").append('<div><div/>').html(playerColor + " Wins!").css('animation', 'blinker 1s linear infinite');
         $('#reset').html("Play again!");
         $(".btn.drop").hide();
-}
+        if (playerColor === "Black") {
+            blackWin++;
+            $('#blackScore').html('Black:   ' + 'Wins = ' + blackWin)
+        } if (playerColor === "Red") {
+            redWin++
+            $('#redScore').html('Red:   ' + 'Wins = ' + redWin)
+        }
+    }
 
     //arrays containing all possible win conditions
     var con1 = [$('#n36'), $('#n29'), $('#n22'), $('#n15'), $('#n8'), $('#n1')];
@@ -92,125 +98,124 @@ function winningBoard () {
     var con24 = [$('#n28'), $('#n20'), $('#n12'), $('#n4')];
     var con25 = [$('#n22'), $('#n16'), $('#n10'), $('#n4')];
 
-    var conditionsLength6 = [con1,con2,con3,con4,con5,con6,con7,con8,con9,con10,con11];
-    var conditionsLength7 = [con12,con13,con14,con15,con16,con17];
-    var conditionsLength5 = [con18,con19,con20,con21];
-    var conditionsLength4 = [con22,con23,con24,con25];
+    var conditionsLength6 = [con1, con2, con3, con4, con5, con6, con7, con8, con9, con10, con11];
+    var conditionsLength7 = [con12, con13, con14, con15, con16, con17];
+    var conditionsLength5 = [con18, con19, con20, con21];
+    var conditionsLength4 = [con22, con23, con24, con25];
 
- //testing win conditions with a length of 6
+    //testing win conditions with a length of 6
     function winConditionsLength6() {
         var currentValue = null,
-        previousValue = 0,
-        tally = 0;
+            previousValue = 0,
+            tally = 0;
 
- for (var i = 0; i < conditionsLength6.length; i++) {
-    for (var x = 0; x < con1.length; x++) {
-           
-            currentValue = conditionsLength6[i][x].attr('class');
-            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
-                tally += 1;
-            } else {
-                // Reset the tally if you find a gap.
-                tally = 0;
+        for (var i = 0; i < conditionsLength6.length; i++) {
+            for (var x = 0; x < con1.length; x++) {
+
+                currentValue = conditionsLength6[i][x].attr('class');
+                if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                    tally += 1;
+                } else {
+                    // Reset the tally if you find a gap.
+                    tally = 0;
+                }
+                if (tally === 3) {
+                    winningBoard();
+
+                }
+                previousValue = currentValue;
             }
-            if (tally === 3) {
-            console.log(playerColor)
-            winningBoard ();
-                
-            }
-            previousValue = currentValue;
+
+            // After each row, reset the tally and previous value.
+            tally = 0;
+            previousValue = 0;
         }
-
-        // After each row, reset the tally and previous value.
-        tally = 0;
-        previousValue = 0;
-    }
     }
 
-//testing win conditions with a length of 7
-     function winConditionsLength7() {
+    //testing win conditions with a length of 7
+    function winConditionsLength7() {
         var currentValue = null,
-        previousValue = 0,
-        tally = 0;
+            previousValue = 0,
+            tally = 0;
 
- for (var i = 0; i < conditionsLength7.length; i++) {
-    for (var x = 0; x < con12.length; x++) {
-           
-            currentValue = conditionsLength7[i][x].attr('class');
-            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
-                tally += 1;
-            } else {
-                // Reset the tally if you find a gap.
-                tally = 0;
+        for (var i = 0; i < conditionsLength7.length; i++) {
+            for (var x = 0; x < con12.length; x++) {
+
+                currentValue = conditionsLength7[i][x].attr('class');
+                if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                    tally += 1;
+                } else {
+                    // Reset the tally if you find a gap.
+                    tally = 0;
+                }
+                if (tally === 3) {
+                    winningBoard();
+                }
+                previousValue = currentValue;
             }
-            if (tally === 3) {
-                
-            }
-            previousValue = currentValue;
+
+            // After each row, reset the tally and previous value.
+            tally = 0;
+            previousValue = 0;
         }
-
-        // After each row, reset the tally and previous value.
-        tally = 0;
-        previousValue = 0;
-    }
     }
 
 
-//testing win conditions with a length of 5
-     function winConditionsLength5() {
+    //testing win conditions with a length of 5
+    function winConditionsLength5() {
         var currentValue = null,
-        previousValue = 0,
-        tally = 0;
+            previousValue = 0,
+            tally = 0;
 
- for (var i = 0; i < conditionsLength5.length; i++) {
-    for (var x = 0; x < con18.length; x++) {
-           
-            currentValue = conditionsLength5[i][x].attr('class');
-            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
-                tally += 1;
-            } else {
-                // Reset the tally if you find a gap.
-                tally = 0;
+        for (var i = 0; i < conditionsLength5.length; i++) {
+            for (var x = 0; x < con18.length; x++) {
+
+                currentValue = conditionsLength5[i][x].attr('class');
+                if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                    tally += 1;
+                } else {
+                    // Reset the tally if you find a gap.
+                    tally = 0;
+                }
+                if (tally === 3) {
+                    winningBoard();
+                }
+                previousValue = currentValue;
             }
-            if (tally === 3) {
-                
-            }
-            previousValue = currentValue;
+
+            // After each row, reset the tally and previous value.
+            tally = 0;
+            previousValue = 0;
         }
-
-        // After each row, reset the tally and previous value.
-        tally = 0;
-        previousValue = 0;
-    }
     }
 
-     
-//testing win conditions with a length of 4
-     function winConditionsLength4() {
+
+    //testing win conditions with a length of 4
+    function winConditionsLength4() {
         var currentValue = null,
-        previousValue = 0,
-        tally = 0;
+            previousValue = 0,
+            tally = 0;
 
- for (var i = 0; i < conditionsLength4.length; i++) {
-    for (var x = 0; x < con22.length; x++) {
-           
-            currentValue = conditionsLength4[i][x].attr('class');
-            if (currentValue === previousValue && currentValue !== 'emptyCircle') {
-                tally += 1;
-            } else {
-                // Reset the tally if you find a gap.
-                tally = 0;
+        for (var i = 0; i < conditionsLength4.length; i++) {
+            for (var x = 0; x < con22.length; x++) {
+
+                currentValue = conditionsLength4[i][x].attr('class');
+                if (currentValue === previousValue && currentValue !== 'emptyCircle') {
+                    tally += 1;
+                } else {
+                    // Reset the tally if you find a gap.
+                    tally = 0;
+                }
+                if (tally === 3) {
+                    winningBoard();
+                }
+                previousValue = currentValue;
             }
-            if (tally === 3) {
-                
-            }
-            previousValue = currentValue;
+
+            // After each row, reset the tally and previous value.
+            tally = 0;
+            previousValue = 0;
         }
-
-        // After each row, reset the tally and previous value.
-        tally = 0;
-        previousValue = 0;
-    }
     }
 
     //functions to fill in stacking rows on button click
