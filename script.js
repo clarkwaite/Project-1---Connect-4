@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
     createGameBoard();
     //player turn global variable
-    var playerNumber = 'Black';
+    var playerColor = 'Black';
 
     //change player names for alerts
     var name1 = 'Black';
@@ -29,22 +29,22 @@ $(document).ready(function () {
 
     //change player AND check win conditions
     function playerChange() {
-//calls for win before changing player
+
         winConditionsLength6();
         winConditionsLength7();
         winConditionsLength5();
         winConditionsLength4();
-
-        if (playerNumber === 'Black') {
+        
+        if (playerColor === 'Black') {
             $("#aboveBoard").empty();
             $("#aboveBoard").prepend('<div><div/>').html(name2 + "\'s" + " Turn!");
             $("#aboveBoard").css('color', 'rgba(255, 75, 75, .9)');
-            playerNumber = 'Red';
-        } else if (playerNumber === 'Red') {
+            playerColor = 'Red';
+        } else if (playerColor === 'Red') {
             $("#aboveBoard").empty();
             $("#aboveBoard").prepend('<div><div/>').html(name1 + "\'s" + " Turn!");
             $("#aboveBoard").css('color', 'rgba(0,0,0,.7)');
-            playerNumber = 'Black';
+            playerColor = 'Black';
         }
         // winConditions5();
         // winConditions6();
@@ -121,7 +121,7 @@ $(document).ready(function () {
                 tally = 0;
             }
             if (tally === 3) {
-                console.log(playerNumber);
+                
             }
             previousValue = currentValue;
         }
@@ -149,7 +149,7 @@ $(document).ready(function () {
                 tally = 0;
             }
             if (tally === 3) {
-                console.log(playerNumber);
+                
             }
             previousValue = currentValue;
         }
@@ -178,7 +178,7 @@ $(document).ready(function () {
                 tally = 0;
             }
             if (tally === 3) {
-                console.log(playerNumber);
+                
             }
             previousValue = currentValue;
         }
@@ -207,7 +207,7 @@ $(document).ready(function () {
                 tally = 0;
             }
             if (tally === 3) {
-                console.log(playerNumber);
+                
             }
             previousValue = currentValue;
         }
@@ -222,11 +222,11 @@ $(document).ready(function () {
     $('#column1').on('click', function () {
         var firstColumn = [$('#n36'), $('#n29'), $('#n22'), $('#n15'), $('#n8'), $('#n1')];
         for (var i = 0; i < firstColumn.length; i++) {
-            if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (firstColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 firstColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (firstColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (firstColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 firstColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -236,11 +236,11 @@ $(document).ready(function () {
     $('#column2').on('click', function () {
         var secondColumn = [$('#n37'), $('#n30'), $('#n23'), $('#n16'), $('#n9'), $('#n2')];
         for (var i = 0; i < secondColumn.length; i++) {
-            if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (secondColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 secondColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (secondColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (secondColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 secondColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -250,11 +250,11 @@ $(document).ready(function () {
     $('#column3').on('click', function () {
         var thirdColumn = [$('#n38'), $('#n31'), $('#n24'), $('#n17'), $('#n10'), $('#n3')];
         for (var i = 0; i < thirdColumn.length; i++) {
-            if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (thirdColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 thirdColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (thirdColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (thirdColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 thirdColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -264,11 +264,11 @@ $(document).ready(function () {
     $('#column4').on('click', function () {
         var fourthColumn = [$('#n39'), $('#n32'), $('#n25'), $('#n18'), $('#n11'), $('#n4')];
         for (var i = 0; i < fourthColumn.length; i++) {
-            if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (fourthColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 fourthColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (fourthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (fourthColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 fourthColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -278,11 +278,11 @@ $(document).ready(function () {
     $('#column5').on('click', function () {
         var fifthColumn = [$('#n40'), $('#n33'), $('#n26'), $('#n19'), $('#n12'), $('#n5')];
         for (var i = 0; i < fifthColumn.length; i++) {
-            if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (fifthColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 fifthColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (fifthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (fifthColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 fifthColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -292,11 +292,11 @@ $(document).ready(function () {
     $('#column6').on('click', function () {
         var sixthColumn = [$('#n41'), $('#n34'), $('#n27'), $('#n20'), $('#n13'), $('#n6')];
         for (var i = 0; i < sixthColumn.length; i++) {
-            if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (sixthColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 sixthColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (sixthColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (sixthColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 sixthColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
@@ -306,11 +306,11 @@ $(document).ready(function () {
     $('#column7').on('click', function () {
         var seventhColumn = [$('#n42'), $('#n35'), $('#n28'), $('#n21'), $('#n14'), $('#n7')];
         for (var i = 0; i < seventhColumn.length; i++) {
-            if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Black') {
+            if (seventhColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Black') {
                 seventhColumn[i].addClass('blackCircle').removeClass('emptyCircle');
                 playerChange();
                 break
-            } else if (seventhColumn[i].attr('class') === 'emptyCircle' && playerNumber === 'Red') {
+            } else if (seventhColumn[i].attr('class') === 'emptyCircle' && playerColor === 'Red') {
                 seventhColumn[i].addClass('redCircle').removeClass('emptyCircle');
                 playerChange();
                 break
