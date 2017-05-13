@@ -19,8 +19,6 @@ p {
   font-family: 'Francois One', sans-serif; 
   color: rgba(0,0,0,.7);
 
-
- 
 }
 
 #game-board {
@@ -85,6 +83,19 @@ p {
   font-weight: 900;
   font-size: 20px;
   color: rgba(0,0,0,.7);
+}
+
+.winBoard {
+  text-align: center;
+  padding: 0 25px 0 25px;
+  font-family: 'Francois One', sans-serif; 
+  font-weight: 900;
+  font-size: 30px;
+  color: rgba(0,0,0,.7);
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
 }
 
 .emptyCircle {

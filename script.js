@@ -19,11 +19,18 @@ $(document).ready(function () {
     var name1 = 'Black';
     var name2 = 'Red';
 
-    //reset board  
+    //resets the board from the win board, and alternates starting player.
     function resetGameBoard() {
         $("#game-board div").removeClass("blackCircle");
         $("#game-board div").removeClass("redCircle");
         $("#game-board div").addClass("emptyCircle");
+        $('#reset').html("Reset the Board");
+        $(".winBoard").empty();
+        $(".winBoard").append('<div id="aboveBoard"></div>').css('animation', '');
+        playerChange();
+        playerChange();
+        $(".btn.drop").show();
+        
     }
     $('#reset').click(resetGameBoard);
 
@@ -46,28 +53,14 @@ $(document).ready(function () {
             $("#aboveBoard").css('color', 'rgba(0,0,0,.7)');
             playerColor = 'Black';
         }
-        // winConditions5();
-        // winConditions6();
-        // winConditions7();
-        // winConditions8();
-        // winConditions9();
-        // winConditions10();
-        // winConditions11();
-        // winConditions12();
-        // winConditions13();
-        // winConditions14();
-        // winConditions15();
-        // winConditions16();
-        // winConditions17();
-        // winConditions18();
-        // winConditions19();
-        // winConditions20();
-        // winConditions21();
-        // winConditions22();
-        // winConditions23();
-        // winConditions24();
-        // winConditions25();
     }
+//function to change the board when win conditions are met
+function winningBoard () {
+        $(".winBoard").empty();
+        $(".winBoard").append('<div><div/>').html(playerColor + " Wins!").css('animation', 'blinker 1s linear infinite');
+        $('#reset').html("Play again!");
+        $(".btn.drop").hide();
+}
 
     //arrays containing all possible win conditions
     var con1 = [$('#n36'), $('#n29'), $('#n22'), $('#n15'), $('#n8'), $('#n1')];
@@ -121,6 +114,8 @@ $(document).ready(function () {
                 tally = 0;
             }
             if (tally === 3) {
+            console.log(playerColor)
+            winningBoard ();
                 
             }
             previousValue = currentValue;
