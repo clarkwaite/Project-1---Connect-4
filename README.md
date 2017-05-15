@@ -10,20 +10,19 @@ Game Features:
 • This game is fully playable. 
 • Drop buttons are above each row that simulate dropping the disc from the top.
 • It will automatically throw an alert when a player wins, and it will tell you which player (Red or Black) won the game. 
-• The game can be reset by using the reset button. This will clear the board, and maintain the order of players. It starts with    the player that did not play last (or that did not win the game).
-• Player names can be entered at the bottom of the page, and they are outlined with the color that they represent.
-• Text above the board will tell the players who's turn it is.
-• The game is responsive and will shrink when below 450px wide
+• The game can be reset by using the reset button. This will clear the board, and maintain the order of players. It starts with    the player that did not play last (or that did not win the game). 
+• If the game is won by either player then the reset button becomes a New Game button.
+• Player score is tracked at the bottom, and they are outlined with the color that they represent.
+• Text above the board will tell the players who's turn it is (color).
+• The game is responsive and will shrink to fit tablet and cell phone.
 
 Features that were not completed:
 • The game will not alert you if the game results in a draw (there are no more areas to play a disc)
-• The player names are for show only. They do not update the info about who's turn it is, or the alert showing the winner.
+• The player names/color cannot be changed.
 • AI was not created to play against
-• Player wins are not shown
-• The code is very repetitive. I was in the process of making it more DRY but was unable.
 
 - Link to the Deployed App:
-http://choreographer-certificate-46128.bitballoon.com/
+http://playconnectfour.bitballoon.com
 
 - Link to the Trello Board:
 https://trello.com/b/SbKObae7/unit-1-connect-four
